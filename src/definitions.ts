@@ -1,3 +1,3 @@
 export interface PowerModePlugin {
-  echo(options: { value: string }): Promise<{ value: string }>;
+  lowPowerModeEnabled(): Promise<{ lowPowerModeEnabled: boolean }>;
 }

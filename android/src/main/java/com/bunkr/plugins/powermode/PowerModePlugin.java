@@ -6,17 +6,21 @@ import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
 import com.getcapacitor.annotation.CapacitorPlugin;
 
+import android.content.Context;
+import android.os.PowerManager;
+
 @CapacitorPlugin(name = "PowerMode")
 public class PowerModePlugin extends Plugin {
+   @PluginMethod
+      public void lowPowerModeEnabled(PluginCall call) {
+       PowerManager powerManager = null;
+       if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+           powerManager = (PowerManager) getContext().getSystemService(Context.POWER_SERVICE);
+       }
+       boolean lowPowerModeEnabled = powerManager.isPowerSaveMode();
 
-    private PowerMode implementation = new PowerMode();
-
-    @PluginMethod
-    public void echo(PluginCall call) {
-        String value = call.getString("value");
-
-        JSObject ret = new JSObject();
-        ret.put("value", implementation.echo(value));
-        call.resolve(ret);
-    }
+          JSObject ret = new JSObject();
+          ret.put("lowPowerModeEnabled", lowPowerModeEnabled);
+          call.resolve(ret);
+      }
 }
