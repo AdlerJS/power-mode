@@ -1,6 +1,6 @@
 {
   "name": "power-mode",
-  "version": "0.0.1",
+  "version": "5.0.0",
   "description": "Capacitor Plugin to Detect Low Power Mode",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
