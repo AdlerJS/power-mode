@@ -8,7 +8,7 @@ import Capacitor
 @objc(PowerModePlugin)
 public class PowerModePlugin: CAPPlugin {
     @objc func lowPowerModeEnabled(_ call: CAPPluginCall) {
-          let lowPowerModeEnabled = ProcessInfo.processInfo.isLowPowerModeEnabled
-          call.resolve(["lowPowerModeEnabled": lowPowerModeEnabled])
-      }
+        let lowPowerModeEnabled = ProcessInfo.processInfo.isLowPowerModeEnabled
+        call.resolve(["lowPowerModeEnabled": lowPowerModeEnabled])
+    }
 }
